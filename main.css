@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+}
+
+button {
+    padding: 8px 20px;
+    font-size: 16px;
+    margin-top: 12px;
+    cursor: pointer;
+    background-color: blue;
+    border-radius: 6px;
+    color: white;  
+}
+
+#display {
+    font-weight: bold;
+}
