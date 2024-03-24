@@ -7,7 +7,7 @@ let snakeArr = [
 btn.addEventListener('click', () => {
 
     snakeArr.forEach((e, i) => {
-    console.log(e);
+     console.log(e);
     
-})
+    })
 })
