@@ -1,15 +1,12 @@
-// const score = 20
-
-// const scoreRating =
-//   score > 70 ? "Excellent" : "Do better"
-
-// console.log(scoreRating)
-// // Excellent
-
-// let val = 50;
-// const check = val > 30 ? "woo" : "what";
-// console.log(check
-function val(bal) {
-   return bal ? 'woo' : "boo";
+function countUniqueValues(arr){
+   if(arr.length === 0) return 0;
+   var i = 0;
+   for(var j = 1; j < arr.length; j++){
+       if(arr[i] !== arr[j]){
+           i++;
+           arr[i] = arr[j]
+       }
+   }
+   return i + 1;
 }
-console.log(val(true))
+countUniqueValues([1,2,2,5,7,7,99])
