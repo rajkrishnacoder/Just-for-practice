@@ -1,3 +1,4 @@
-let me = 'hello';
-let mee = new String('hello');
-console.log(`${typeof me} or ${typeof mee}`);
+let me = '     hello world     ';
+
+let me2 = me.trimStart();
+console.log(me2);
