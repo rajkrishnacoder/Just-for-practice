@@ -1,5 +1,4 @@
-let str = '20';
-let num =  Number(str);
-console.log(typeof str);
-console.log(typeof num);
-console.log(num, str);
+const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a - b});
+
+console.log(points);
