@@ -14,7 +14,6 @@
 // let text = "The rain in SPAIN stays mainly in the plain";
 
 // console.log(text.match(/ain/));
-const numbers = [45, 4, 9, 16, 25];
-
-let num = numbers.flatMap((x) =>  x * 2 )
-console.log(num);
+// const myArr = [1, 2, 3, 4, 5, 6];
+// const newArr = myArr.flatMap((x, z, s) => x);
+// console.log(newArr);
