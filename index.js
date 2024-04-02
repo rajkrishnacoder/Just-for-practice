@@ -1,7 +1,8 @@
-const numbers1 = [45, 4, 9, 16, 25];
-const numbers2 = numbers1.flatMap(myFunction);
-
-function myFunction(val) {
-  return val * 2;
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const keys = fruits.entries();
+let text = "";
+for (let x of keys) {
+  text += `${x} \n`
 }
-console.log(numbers2);
+
+console.log(text);
