@@ -1,3 +1,7 @@
-// I am writing this code on linux oparating system so this is new exeperiance for me
-// i have been using windows for quite long time so this kinda adventures
-console.log('rajkrishna debanath'); 
+const numbers1 = [45, 4, 9, 16, 25];
+const numbers2 = numbers1.flatMap(myFunction);
+
+function myFunction(val) {
+  return val * 2;
+}
+console.log(numbers2);
