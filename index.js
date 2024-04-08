@@ -1,16 +1,7 @@
-const person = {
-  fullName: function() {
-    return this.firstName + " " + this.lastName;
-  }
+function add() {
+  let counter = 0;
+  function plus() {counter += 1;}
+  plus();   
+  return counter;
 }
-const person1 = {
-  firstName:"John",
-  lastName: "Doe"
-}
-const person2 = {
-  firstName: "Mary",
-  lastName: "Doe"
-}
-
-// This will return "Mary Doe":
-console.log(person.fullName.apply(person1));
+console.log(add())
