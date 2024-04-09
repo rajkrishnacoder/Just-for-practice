@@ -15,3 +15,10 @@ button {
 #display {
     font-weight: bold;
 }
+
+.myDiv {
+    width: 300px;
+    height: 30px;
+    background-color: chartreuse;
+    display: flex;
+}
