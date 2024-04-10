@@ -1,21 +1,20 @@
-const btn = document.querySelector('.btn');
-const myDiv = document.querySelector('.myDiv');
-
-//now i am gonna show create a div child using js. this is my first time by my own;
-
-
-const myTxt = () => {
-  const divChild = document.createElement('p');
-  divChild.classList.add('name');
-  const txt = document.createTextNode('Hello World');
-  divChild.appendChild(txt);
-  myDiv.appendChild(divChild);
+function myDisplayer(some) {
+  console.log(some);
 }
-btn.addEventListener('click', myTxt);
-// setInterval(myTxt, 1000);
-let snakeArr = [
-    {x: 13, y: 15}
-  ];
-snakeArr.forEach((e, index) => {
-   console.log(e.y);
-})
+
+let myPromise = new Promise(function(myResolve, myReject) {
+  let x = 0;
+
+// The producing code (this may take some time)
+
+  if (x == 0) {
+    myResolve("OK");
+  } else {
+    myReject("Error");
+  }
+});
+
+myPromise.then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
