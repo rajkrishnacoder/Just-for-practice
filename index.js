@@ -1,9 +1,8 @@
 function customRender(reactElement, container) {
     const domElement = document.createElement(reactElement.type)
     domElement.innerHTML =  reactElement.children;
-    for (const prop in props) {
-        if (prop == children) continue;
-
+    for (const prop in reactElement.props) {
+        domElement.setAttribute(prop, reactElement.props[prop])
     }
 
     container.appendChild(domElement);
