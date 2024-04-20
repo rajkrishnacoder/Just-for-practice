@@ -61,3 +61,32 @@ async function consumePromiseFive() {
 }
 
 consumePromiseFive()
+
+// this is my own practice
+async function getallusers() {
+    try {
+        const response = await fetch('https://api.github.com/users/hiteshchoudhary')
+        const data = await response.json()
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+getallusers()
+
+
+fetch("https://api.github.com/users/hiteshchoudhary")
+.then((response) => {
+    return response.json()
+    
+})
+.then((data) => {
+    console.log(data)
+})
+.catch((error) => {console.log(error)})
+
+
+
+
+
+
