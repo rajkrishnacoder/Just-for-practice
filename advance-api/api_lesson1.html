@@ -15,34 +15,14 @@
 </body>
 <script>
 
-    let name = {}
-    const div = document.querySelector('div')
-    const button = div.children[1]
-    let imag1 = true
-   
-    const requerUrl = "https://api.github.com/users/hiteshchoudhary"
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', requerUrl)
-    xhr.send();
-    xhr.onreadystatechange = function(){
-        //console.log(xhr.readyState);
-        if(xhr.readyState === 4 && imag1) {
-            const data = JSON.parse(this.responseText)
+const xml = new XMLHttpRequest();
 
-            button.addEventListener('click', () => {
-               if(imag1) {
-                imag1 = false
-                div.children[2].innerHTML = data.followers
-                const img = document.createElement('img')
-                img.src = data.avatar_url
-                div.children[0].appendChild(img)
-               }
-                
-            })
-            
-        }
-    }
-    
+xml.open('GET', "https://api.github.com/users/hiteshchoudhary")
+xml.onreadystatechange = function() {
+    console.log(xml.readyState)
+}
+xml.send()
+
 
 </script>
 </html>
