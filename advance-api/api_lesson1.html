@@ -18,8 +18,13 @@
 const xml = new XMLHttpRequest();
 
 xml.open('GET', "https://api.github.com/users/hiteshchoudhary")
+
 xml.onreadystatechange = function() {
-    console.log(xml.readyState)
+    if(xml.readyState === 4) {
+        const resPonse = JSON.parse(this.response)
+        console.log(resPonse)
+        console.log(resPonse.bio)
+    }
 }
 xml.send()
 
