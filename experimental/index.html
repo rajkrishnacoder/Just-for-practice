@@ -10,14 +10,18 @@
 </body>
 <script>
     
-    console.log(window)
-    window.addEventListener("keydown", (e) => {
-        const key = e.key
-        if(key === "e" || key === "E") {
-            alert("hello world")
-            console.log('responce is "e"');
-            
+    const link = "https://api.github.com/users/hiteshchoudhary"
+    
+    const xml = new XMLHttpRequest()
+    xml.open("GET", link)
+    
+    xml.onreadystatechange = function() {
+        if(xml.readyState === 4) {
+            const data = JSON.parse(this.response)
+            console.log(data)
         }
-    })
+    }
+    xml.send()
+   
 </script>
 </html>
