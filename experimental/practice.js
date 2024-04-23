@@ -1,13 +1,16 @@
-const link = "https://api.github.com/users/hiteshchoudhary"
+function chai(chaiName) {
+    this._chaiName = chaiName
 
-async function myApi() {
-    try {
-        const response = await fetch(link)
-        const data = await response.json() 
-        console.log(data)
-    } catch(error) {
-        console.log(error)
-    }
+    Object.defineProperty(this, "chaiName", {
+        get: function() {
+            return this._chaiName.toUpperCase()
+        },
+        set: function(value) {
+            this._chaiName = value
+        }
+    })
 }
 
-myApi()
+const chai1 = new chai("myChai")
+
+console.log(chai1.chaiName)
