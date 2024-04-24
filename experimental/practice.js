@@ -1,20 +1,16 @@
-const test = {
-    myName: "rajkrishna"
+function user(username) {
+    this._username = username
+
+    Object.defineProperty(this, 'username', {
+        get: function() {
+            return this._username.toUpperCase()
+        },
+        set: function(value) {
+            this._username = value
+        }
+    })
 }
 
-const user = {
-    age: 20,
-    _email: "r@google.com",
-    get email() {
-        return this._email.toUpperCase()
-    },
-    set email(value) {
-        this._email = value;
-    }
-}
+const user1 = new user("rajkrishna") 
 
-Object.setPrototypeOf(user, test)
-
-console.log(user.myName)
-
-console.log(user.email)
+console.log(user1.username) 
