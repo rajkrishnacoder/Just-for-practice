@@ -10,18 +10,15 @@
 </body>
 <script>
     
-    const link = "https://api.github.com/users/hiteshchoudhary"
-    
-    const xml = new XMLHttpRequest()
-    xml.open("GET", link)
-    
-    xml.onreadystatechange = function() {
-        if(xml.readyState === 4) {
-            const data = JSON.parse(this.response)
-            console.log(data)
-        }
+function binarySearch(arr, val){
+    let num = arr.length
+    let mid = Math.ceil(arr.lenth / 2)
+    for(let i = 0; i < arr.length; i++) {
+       if(arr[mid-1] === val) return mid
+        
     }
-    xml.send()
-   
+}
+
+
 </script>
 </html>
