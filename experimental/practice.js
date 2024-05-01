@@ -1,33 +1,45 @@
-const bubbleSort = (arr) => {
-    let noSwap;
-    for(let i = arr.length; i > 0; i--){
-        noSwap = true;
-        for(let j = 0; j < i-1; j++){
-            if(arr[j] > arr[j+1]){
-                let temp = arr[j]
-                arr[j] = arr[j+1]
-                arr[j+1] = temp
-                noSwap = false
-            }
+//this is for merging tow sorted array
+function merge(arr1, arr2) {
+    let result = [];
+    let i = 0;
+    let j = 0;
+    while(i < arr1.length && j < arr2.length){
+        if(arr1[i] > arr2[j]){
+            result.push(arr2[j])
+            j++
+        }else if(arr1[i] === arr2[j]){
+            result.push(arr1[i])
+            result.push(arr2[j])
+            i++
+            j++
         }
-        if(noSwap) break
-    }
-    return arr
-}
-
-const selectionSort = (arr) => {
-    for(let i = 0; i < arr.length; i++) {
-        let lowest = i;
-        for(let j = i; j < arr.length; j++) {
-            if(arr[i] > arr[j+1]) lowest = j+1
-        }
-        if(arr[i] !== arr[lowest]){
-            let temp = arr[i]
-            arr[i] = arr[lowest]
-            arr[lowest] = temp
+        if(arr1[i] < arr2[j]){
+            result.push(arr1[i])
+            i++
         }
     }
-    return arr
+    while(i < arr1.length){
+        result.push(arr1[i])
+        i++
+    }
+    while(j < arr2.length){
+        result.push(arr2[j])
+        j++
+    }
+    return result
 }
 
-console.log(selectionSort([10, 2, 3, 1, 0]))
+// console.log(merge([1,2,3], [5,7,9]))
+
+// mergesort
+ 
+function mergeSort(arr) {
+    if(arr.length <= 1) return arr;
+    let mid = Math.floor(arr.length / 2)
+    let left = mergeSort(arr.slice(0, mid))
+    let right = mergeSort(arr.slice(mid))
+    return merge(left, right)
+}
+console.log(mergeSort([3, 2, 1, 4]))
+
+
