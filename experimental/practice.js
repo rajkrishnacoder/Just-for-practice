@@ -1,45 +1,127 @@
-//this is for merging tow sorted array
-function merge(arr1, arr2) {
-    let result = [];
-    let i = 0;
-    let j = 0;
-    while(i < arr1.length && j < arr2.length){
-        if(arr1[i] > arr2[j]){
-            result.push(arr2[j])
-            j++
-        }else if(arr1[i] === arr2[j]){
-            result.push(arr1[i])
-            result.push(arr2[j])
-            i++
-            j++
-        }
-        if(arr1[i] < arr2[j]){
-            result.push(arr1[i])
-            i++
-        }
+class Node{
+    constructor(val, next){
+        this.val = val
+        this.next = next
     }
-    while(i < arr1.length){
-        result.push(arr1[i])
-        i++
-    }
-    while(j < arr2.length){
-        result.push(arr2[j])
-        j++
-    }
-    return result
 }
 
-// console.log(merge([1,2,3], [5,7,9]))
+// this is a helper class for ower singly linked lists
 
-// mergesort
- 
-function mergeSort(arr) {
-    if(arr.length <= 1) return arr;
-    let mid = Math.floor(arr.length / 2)
-    let left = mergeSort(arr.slice(0, mid))
-    let right = mergeSort(arr.slice(mid))
-    return merge(left, right)
+class SinglyLinkedLists{
+    constructor(){
+        this.head = null
+        this.tail = null
+        this.length = 0;
+    }
+
+    push(val){
+        let newNode = new Node(val, null)
+        if(!this.head){
+            this.head = newNode
+            this.tail = this.head
+        }else{
+            this.tail.next = newNode
+            this.tail = this.tail.next
+        }
+        this.length++
+        return this
+    }
+    pop(){
+        let current = this.head
+        if(this.length === 1){
+            this.head = null
+            this.tail = null
+        }else{
+            let prev = current
+            for(let i = 0; i < this.length-1; i++){
+                prev = current
+                current = current.next
+            } 
+            this.tail = prev
+            this.tail.next = null 
+        }
+        this.length--
+        return current
+    }
+    shift(){
+       if(!this.head) return undefined
+       let currentHead = this.head
+       this.head = currentHead.next
+       if(this.length === 1){
+        this.tail = null
+       }
+       this.length--
+       return currentHead
+    }
+    unshift(val){
+        let newNode = new Node(val, null)
+        if(!this.head){
+            this.head = newNode
+            this.tail = this.head
+        }else{
+            newNode.next = this.head
+            this.head = newNode
+        }
+        this.length++
+        return this
+    }
+    get(index){
+        if(index < 0 || index >= this.length) return false
+        let current = this.head
+        for(let i = 0; i < index; i++){
+            current = current.next
+        }
+        return current
+    }
+    set(index, val){
+        if(index < 0 || index >= this.length) return false
+        let changingIndex = this.get(index)
+        changingIndex.val = val
+        return true
+    }
+    insert(index, val){
+        if(index < 0 || index > this.length) return false
+        if(index === 0) return !!this.unshift(val)
+        if(index === this.length) return !!this.push(val)
+        let newNode = new Node(val, null)
+        let prev = this.get(index-1)
+        let cur = prev.next
+        prev.next = newNode
+        newNode.next = cur
+        this.length++
+        return true
+    }
+    remove(index){
+        if(index < 0 || index >= this.length) return false
+        if(index === 0) return !!this.shift()
+        if(index === this.length-1) return !!this.pop()
+        let prev = this.get(index-1)
+        let cur = prev.next
+        prev.next = cur.next
+        this.length--
+        return cur
+    }
+    reverse(){
+        let node = this.head
+        this.head = this.tail
+        this.tail = node 
+
+        let next;
+        let prev = null
+        for (let i = 0; i < this.length; i++){
+            next = node 
+            node = node.next
+            next.next = prev
+            prev = next
+        }
+        return this
+    }
 }
-console.log(mergeSort([3, 2, 1, 4]))
 
+let list = new SinglyLinkedLists()
 
+list.push(1);
+list.push(2);
+
+list.reverse()
+console.log(list)
