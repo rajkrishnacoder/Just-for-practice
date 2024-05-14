@@ -64,5 +64,5 @@ class HashTables{
 let str = new HashTables()
 str.set("ra", "rajkrishna")
 str.set("ram", "eky")
-str.set("ram", "eky")
-console.log(str.value())
+
+console.log(str.get("ram"))
