@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(14, 3, 3);
+}
+.myname {
+    margin-left: 30%;
+    margin-top: 20%;
+}
+button {
+    width: 10vmin;
+    height: 10vmin;
+    cursor: pointer;
+    border-radius: 20px;
+}
